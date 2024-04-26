@@ -1,5 +1,13 @@
 import Image from "next/image";
+import { auth, currentUser } from "@clerk/nextjs/server";
+import WavyText from "@/components/WavyText";
+export default async function Home() {
+  const { userId } = auth();
+  const user = await currentUser();
 
-export default function Home() {
-  return <main className="min-h-screen p-24"></main>;
+  if (!userId || !user) {
+    //return <WavyText text="Log in to your account" />;
+  }
+
+  //return <WavyText text="Awesome Wavy Text!" />;
 }
