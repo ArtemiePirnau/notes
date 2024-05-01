@@ -1,13 +1,20 @@
-import Image from "next/image";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import WavyText from "@/components/WavyText";
+import TypingText from "@/components/TypingText";
 export default async function Home() {
   const { userId } = auth();
   const user = await currentUser();
 
   if (!userId || !user) {
-    //return <WavyText text="Log in to your account" />;
+    return (
+      <div className="flex justify-center">
+        <TypingText text="Log in to your account" />
+      </div>
+    );
   }
 
-  //return <WavyText text="Awesome Wavy Text!" />;
+  return (
+    <div className="flex justify-center">
+      <TypingText text="Go to /notes" />
+    </div>
+  );
 }

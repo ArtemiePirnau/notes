@@ -6,13 +6,13 @@ export default async function DashboardPage() {
   const user = await currentUser();
 
   // check if we're logged in or not
-  if (!userId || !user) {
-    return (
-      <div className="text-center text-4xl font-semibold">
-        You are not logged in 🙁
-      </div>
-    );
-  }
+  // if (!userId || !user) {
+  //   return (
+  //     <div className="text-center text-4xl font-semibold">
+  //       You are not logged in 🙁
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="mt-10 text-start max-w-xl mx-auto p-5 rounded">
@@ -20,16 +20,16 @@ export default async function DashboardPage() {
       <ul className="list-none mt-10">
         <li className="mb-2">
           <span className="font-semibold text-2xl pr-2">First Name:</span>
-          <span className="font-semibold">{user.firstName}</span>
+          <span className="font-semibold">{user?.firstName}</span>
         </li>
         <li className="mb-2">
           <span className="font-semibold text-2xl pr-2">Last Name:</span>
-          <span className="font-semibold">{user.lastName}</span>
+          <span className="font-semibold">{user?.lastName}</span>
         </li>
         <li className="mb-2">
           <span className="font-semibold text-2xl pr-2">Email:</span>
           <span className="font-semibold">
-            {user.emailAddresses[0].emailAddress}
+            {user?.emailAddresses[0].emailAddress}
           </span>
         </li>
       </ul>

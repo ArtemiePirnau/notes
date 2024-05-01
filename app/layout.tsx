@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
+import Providers from "./providers";
 import Header from "@/components/Header";
 import "./globals.css";
 
@@ -16,12 +17,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // bg-[#010409] text-white
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={`${inter.className} bg-[#010409] text-white`}>
-          <Header />
-          {children}
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${inter.className} cursor-default `}>
+          <Providers>
+            <main className="">
+              <Header />
+              {children}
+            </main>
+          </Providers>
         </body>
       </html>
     </ClerkProvider>
