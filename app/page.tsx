@@ -18,3 +18,4 @@ export default async function Home() {
     </div>
   );
 }
+// https://www.uplabs.com/posts/note-taking-app-ui-for-pc - UI
